@@ -23,10 +23,26 @@ public class AdministratorService {
 		return books;
 	}
 	
+	public List<Author> getAllAuthors() throws SQLException {
+		
+		AuthorDAO ad = new AuthorDAO();
+		List<Author> authors = ad.readAll();
+		
+		return authors;
+	}
+	
+	public void editAuthor(Author author) throws SQLException {
+		AuthorDAO ad = new AuthorDAO();
+		ad.update(author);
+	}
 
 	public void addAuthor(Author author) throws SQLException {
 		AuthorDAO ad = new AuthorDAO();
 		ad.insert(author);
 	}
 
+	public void deleteAuthor(Author author) throws SQLException {
+		AuthorDAO ad = new AuthorDAO();
+		ad.delete(author);
+	}
 }
